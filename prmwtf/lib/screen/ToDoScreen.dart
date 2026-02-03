@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../model/ToDo.dart';
 import '../service/ToDoService.dart';
+import 'SecondScreen.dart';
 
 class TodoScreen extends StatefulWidget {
   const TodoScreen({super.key});
@@ -93,6 +94,33 @@ class _TodoScreenState extends State<TodoScreen> {
         title: const Text("Todo List (RAM)"),
         backgroundColor: Colors.black,
         foregroundColor: Colors.white,
+
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.arrow_forward_ios), // Icon mũi tên
+            onPressed: () {
+              // Điều hướng đến SecondScreen khi nhấn nút
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const SecondScreen()),
+              );
+            },
+          ),
+          // Nút 2: Lọc
+          IconButton(
+            icon: const Icon(Icons.filter_list),
+            onPressed: () {},
+          ),
+
+          // Nút 3: Setting (Thêm cái này nhìn cho ngầu)
+          IconButton(
+            icon: const Icon(Icons.settings),
+            onPressed: () {
+              // Navigate sang màn hình Setting...
+            },
+          ),
+
+        ],
       ),
 
       body: ListView.builder(
